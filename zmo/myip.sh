@@ -2,8 +2,8 @@
 
 set -e
 IP_FILE="$HOME/current_ip"
-OLD_IP="$(cat "$IP_FILE")"
-NEW_IP="$(curl -4 'https://ifconfig.me/')"
+OLD_IP="$(cat "$IP_FILE" || echo)"
+NEW_IP="$(curl -s -4 'https://ifconfig.me/')"
 
 if [ "x$OLD_IP" = "x$NEW_IP" ]; then
   echo "no update: $OLD_IP"
