@@ -1,0 +1,9 @@
+[Unit]
+Description=discover current ip
+
+[Timer]
+OnStartupSec=5m
+OnUnitActiveSec=5m
+
+[Install]
+WantedBy=timers.target
