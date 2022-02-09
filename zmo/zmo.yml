@@ -26,6 +26,14 @@
           ansible.builtin.copy:
             src: "bootstrap.timer"
             dest: "{{ lookup('env', 'HOME') }}/.config/systemd/user/bootstrap.timer"
+        - name: "Add myip service"
+          ansible.builtin.copy:
+            src: "myip.service"
+            dest: "{{ lookup('env', 'HOME') }}/.config/systemd/user/myip.service"
+        - name: "Add myip timer"
+          ansible.builtin.copy:
+            src: "myip.timer"
+            dest: "{{ lookup('env', 'HOME') }}/.config/systemd/user/myip.timer"
         - name: "Reload configs"
           ansible.builtin.systemd:
             daemon_reload: yes
@@ -34,5 +42,11 @@
           ansible.builtin.systemd:
             state: started
             name: "bootstrap.timer"
+            scope: "user"
+            enabled: yes
+        - name: "Enable myip timer"
+          ansible.builtin.systemd:
+            state: started
+            name: "myip.timer"
             scope: "user"
             enabled: yes
