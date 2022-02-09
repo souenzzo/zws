@@ -30,8 +30,9 @@
           ansible.builtin.systemd:
             daemon_reload: yes
             scope: "user"
-        - name: "Enable bootstrap service"
+        - name: "Enable bootstrap timer"
           ansible.builtin.systemd:
+            state: started
             name: "bootstrap.timer"
             scope: "user"
             enabled: yes
