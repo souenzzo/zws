@@ -11,7 +11,7 @@
         version: "main"
 
     - name: "On git change"
-      when: zws.changed
+      when: zws.changed or manual
       block:
         - name: "Create systemd user directory"
           ansible.builtin.file:
@@ -35,4 +35,3 @@
             name: "bootstrap.timer"
             scope: "user"
             enabled: yes
-
