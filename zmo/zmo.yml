@@ -11,7 +11,7 @@
         version: "main"
 
     - name: "On git change"
-      when: zws.changed or manual
+      when: zws.changed
       block:
         - name: "Create systemd user directory"
           ansible.builtin.file:
