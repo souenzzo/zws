@@ -1,0 +1,37 @@
+---
+- name: "Configure ZWS: a self-replicant machine config"
+  hosts: "localhost"
+  tasks:
+    - register: zws
+      name: "Clone remote code"
+      ansible.builtin.git:
+        repo: "https://github.com/souenzzo/zws"
+        dest: "{{ lookup('env', 'HOME') }}/zws"
+        single_branch: yes
+        version: "master"
+
+    - name: "On git change"
+      when: zws.changed
+      block:
+        - name: "Create systemd user directory"
+          ansible.builtin.file:
+            path: "{{ lookup('env', 'HOME') }}/.config/systemd/user"
+            state: "directory"
+            recurse: yes
+        - name: "Add bootstrap service"
+          ansible.builtin.copy:
+            src: "bootstrap.service"
+            dest: "{{ lookup('env', 'HOME') }}/.config/systemd/user/bootstrap.service"
+        - name: "Add bootstrap timer"
+            ansible.builtin.copy:
+              src: "bootstrap.timer"
+              dest: "{{ lookup('env', 'HOME') }}/.config/systemd/user/bootstrap.timer"
+        - name: "Reload configs"
+          ansible.builtin.systemd:
+            daemon_reload: yes
+            scope: "user"
+        - name: "Enable bootstrap service"
+          ansible.builtin.systemd:
+            name: "bootstrap.timer"
+            scope: "user"
+            enabled: yes

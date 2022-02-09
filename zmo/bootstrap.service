@@ -1,0 +1,6 @@
+[Unit]
+Description=zmo bootstrap
+
+[Service]
+WorkingDirectory=/home/zmo/zws/zmo
+ExecStart=/home/zmo/zws/zmo/zws.sh
