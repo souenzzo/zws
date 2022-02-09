@@ -8,7 +8,7 @@
         repo: "https://github.com/souenzzo/zws"
         dest: "{{ lookup('env', 'HOME') }}/zws"
         single_branch: yes
-        version: "master"
+        version: "main"
 
     - name: "On git change"
       when: zws.changed
