@@ -22,6 +22,10 @@
           ansible.builtin.copy:
             src: "bootstrap.service"
             dest: "{{ lookup('env', 'HOME') }}/.config/systemd/user/bootstrap.service"
+        - name: "Add zmo"
+          ansible.builtin.copy:
+            src: "zmo.service"
+            dest: "{{ lookup('env', 'HOME') }}/.config/systemd/user/zmo.service"
         - name: "Add bootstrap timer"
           ansible.builtin.copy:
             src: "bootstrap.timer"
@@ -36,3 +40,8 @@
             name: "bootstrap.timer"
             scope: "user"
             enabled: yes
+        - name: "Start zmo service"
+          ansible.builtin.systemd:
+            state: started
+            name: "zmo.service"
+            scope: "user"
