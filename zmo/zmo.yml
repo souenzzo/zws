@@ -2,6 +2,8 @@
 - name: "Configure zmo"
   hosts: "localhost"
   tasks:
+    - name: "setup bootstrap"
+      ansible.builtin.import_tasks: "install.yml"
     - name: "Add myip service"
       ansible.builtin.copy:
         src: "myip.service"
@@ -20,4 +22,9 @@
         name: "myip.timer"
         scope: "user"
         enabled: yes
-
+    - name: "Enable dnsupdate timer"
+      ansible.builtin.systemd:
+        state: started
+        name: "dnsupdate.timer"
+        scope: "user"
+        enabled: yes
