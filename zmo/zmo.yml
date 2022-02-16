@@ -16,6 +16,10 @@
       ansible.builtin.copy:
         src: "dnsupdate.service"
         dest: "{{ lookup('env', 'HOME') }}/.config/systemd/user/dnsupdate.service"
+    - name: ".bashrc file"
+        ansible.builtin.copy:
+          src: "bashrc.sh"
+          dest: "{{ lookup('env', 'HOME') }}/.bashrc"
 
     - name: "Reload configs"
       ansible.builtin.systemd:
