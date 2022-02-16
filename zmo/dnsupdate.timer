@@ -1,9 +1,0 @@
-[Unit]
-Description=run dnsupdate
-
-[Timer]
-OnStartupSec=50m
-OnUnitActiveSec=50m
-
-[Install]
-WantedBy=timers.target

@@ -16,24 +16,20 @@
       ansible.builtin.copy:
         src: "dnsupdate.service"
         dest: "{{ lookup('env', 'HOME') }}/.config/systemd/user/dnsupdate.service"
-    - name: "Add myip timer"
-      ansible.builtin.copy:
-        src: "dnsupdate.timer"
-        dest: "{{ lookup('env', 'HOME') }}/.config/systemd/user/dnsupdate.timer"
 
     - name: "Reload configs"
       ansible.builtin.systemd:
         daemon_reload: yes
         scope: "user"
+    - name: "Enable bootstrap timer"
+        ansible.builtin.systemd:
+          state: started
+          name: "bootstrap.timer"
+          scope: "user"
+          enabled: yes
     - name: "Enable myip timer"
       ansible.builtin.systemd:
         state: started
         name: "myip.timer"
-        scope: "user"
-        enabled: yes
-    - name: "Enable dnsupdate timer"
-      ansible.builtin.systemd:
-        state: started
-        name: "dnsupdate.timer"
         scope: "user"
         enabled: yes
