@@ -3,4 +3,4 @@ Description=zmo bootstrap
 
 [Service]
 WorkingDirectory=/home/zmo/zws/zmo
-ExecStart=/home/zmo/zws/zmo/zmo.sh
+ExecStart=/home/zmo/zws/zmo/bootstrap.sh
