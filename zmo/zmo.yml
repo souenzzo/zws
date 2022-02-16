@@ -22,11 +22,11 @@
         daemon_reload: yes
         scope: "user"
     - name: "Enable bootstrap timer"
-        ansible.builtin.systemd:
-          state: started
-          name: "bootstrap.timer"
-          scope: "user"
-          enabled: yes
+      ansible.builtin.systemd:
+        state: started
+        name: "bootstrap.timer"
+        scope: "user"
+        enabled: yes
     - name: "Enable myip timer"
       ansible.builtin.systemd:
         state: started
