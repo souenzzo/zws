@@ -1,0 +1,14 @@
+# ansible-playbook playbook.yaml
+- hosts: localhost
+  connection: local
+  tasks:
+    - copy:
+        src: ./bashrc.sh
+        dest: ~/.bashrc
+    - copy:
+        src: ./gitconfig
+        dest: ~/.gitconfig
+    - ansible.builtin.systemd_service:
+        name: gcr-ssh-agent.socket
+        scope: user
+        enabled: true

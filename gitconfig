@@ -1,0 +1,14 @@
+[user]
+	name = Enzzo Cavallo
+	email = souenzzo@gmail.com
+	signingkey = /home/souenzzo/.ssh/id_rsa.pub
+[commit]
+	gpgsign = true
+[tag]
+	gpgSign = true
+[gpg]
+	format = ssh
+[init]
+	defaultBranch = main
+[credential]
+	helper = /usr/lib/git-core/git-credential-libsecret
