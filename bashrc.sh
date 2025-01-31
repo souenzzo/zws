@@ -4,6 +4,7 @@
 [[ $- != *i* ]] && return
 
 export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/gcr/ssh"
+export WHATSAPP_API="$(secret-tool lookup WA_TOKEN UBLE)"
 
 alias cljs="clj -Sdeps '{:deps{org.clojure/clojurescript{:mvn/version\"1.10.896\"}}}' -M -m cljs.main -re node"
 

@@ -1,10 +1,12 @@
-# ansible-playbook playbook.yaml
 - hosts: localhost
   connection: local
   tasks:
     - ansible.builtin.copy:
         src: ./bashrc.sh
         dest: ~/.bashrc
+    - ansible.builtin.copy:
+        src: ./vimrc
+        dest: ~/.vimrc
     - ansible.builtin.copy:
         src: ./gitconfig
         dest: ~/.gitconfig
@@ -15,5 +17,4 @@
         name: gcr-ssh-agent.socket
         scope: user
         enabled: true
-
 
