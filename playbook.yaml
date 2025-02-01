@@ -17,4 +17,3 @@
         name: gcr-ssh-agent.socket
         scope: user
         enabled: true
-

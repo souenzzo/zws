@@ -1,4 +1,5 @@
 #!/usr/bin/env sh
 
-ansible-playbook playbook.yaml
+set -e
 
+ansible-playbook playbook.yaml
