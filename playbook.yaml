@@ -1,20 +1,24 @@
 - hosts: localhost
   connection: local
   tasks:
-    - ansible.builtin.copy:
+    - name: bashrc
+      ansible.builtin.copy:
         src: ./bashrc.sh
         dest: ~/.bashrc
-    - ansible.builtin.copy:
+    - name: vimrc
+      ansible.builtin.copy:
         src: ./vimrc
         dest: ~/.vimrc
-    - ansible.builtin.copy:
+    - name: gitconfig
+      ansible.builtin.copy:
         src: ./gitconfig
         dest: ~/.gitconfig
-    - ansible.builtin.copy:
+    - name: git allowed signers
+      ansible.builtin.copy:
         src: ./allowed_signers
         dest: ~/.allowed_signers
-    - ansible.builtin.systemd_service:
+    - name: gcr-ssh-agent
+      ansible.builtin.systemd_service:
         name: gcr-ssh-agent.socket
         scope: user
         enabled: true
-
