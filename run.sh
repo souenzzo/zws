@@ -2,4 +2,6 @@
 
 set -e
 
+./configs.sh
 ansible-playbook playbook.yaml
+
