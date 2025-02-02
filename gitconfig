@@ -13,4 +13,4 @@
 [credential]
 	helper = /usr/lib/git-core/git-credential-libsecret
 [gpg "ssh"]
-	allowedSignersFile = /home/souenzzo/allowed_signers
+	allowedSignersFile = /home/souenzzo/.allowed_signers

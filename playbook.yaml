@@ -10,9 +10,9 @@
     - ansible.builtin.copy:
         src: ./gitconfig
         dest: ~/.gitconfig
-    - ansible.builtin.shell:
-        cmd: echo "$(git config --get user.email) namespaces=\"git\" $(cat $(git config --get user.signingkey))" > ~/allowed_signers
-        creates: ~/allowed_signers
+    - ansible.builtin.copy:
+        src: ./allowed_signers
+        dest: ~/.allowed_signers
     - ansible.builtin.systemd_service:
         name: gcr-ssh-agent.socket
         scope: user

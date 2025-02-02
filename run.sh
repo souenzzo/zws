@@ -3,5 +3,5 @@
 set -e
 
 ./configs.sh
-ansible-playbook playbook.yaml
 
+ansible-playbook playbook.yaml
