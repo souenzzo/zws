@@ -5,6 +5,7 @@
 
 export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/gcr/ssh"
 export WHATSAPP_API="$(secret-tool lookup WA_TOKEN UBLE)"
+export MY_PHONE_NUMBER="$(secret-tool lookup MY_PHONE NUMBER)"
 
 alias zws-sync='(cd ~/src/zws && ./run.sh)'
 alias cljs="clj -Sdeps '{:deps{org.clojure/clojurescript{:mvn/version\"1.11.132\"}}}' -M -m cljs.main -re node"
