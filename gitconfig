@@ -12,5 +12,7 @@
 	defaultBranch = main
 [credential]
 	helper = /usr/lib/git-core/git-credential-libsecret
+[core]
+	editor = vim
 [gpg "ssh"]
 	allowedSignersFile = /home/souenzzo/.allowed_signers
