@@ -4,8 +4,14 @@
 [[ $- != *i* ]] && return
 
 export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/gcr/ssh"
-export WHATSAPP_API="$(secret-tool lookup WA_TOKEN UBLE)"
-export MY_PHONE_NUMBER="$(secret-tool lookup MY_PHONE NUMBER)"
+WHATSAPP_API="$(secret-tool lookup WA_TOKEN UBLE)"
+export WHATSAPP_API
+MY_PHONE_NUMBER="$(secret-tool lookup MY_PHONE NUMBER)"
+export MY_PHONE_NUMBER
+MY_PHONE_NUMBER="$(secret-tool lookup MY_PHONE NUMBER)"
+export MY_PHONE_NUMBER
+PULUMI_CONFIG_PASSPHRASE="$(secret-tool lookup zenv PULUMI_CONFIG_PASSPHRASE)"
+export PULUMI_CONFIG_PASSPHRASE
 
 # - Save
 # secret-tool store --label="My current phone number" MY_PHONE NUMBER
